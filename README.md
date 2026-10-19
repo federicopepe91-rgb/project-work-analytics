@@ -1,15 +1,7 @@
 # 🚀 AdventureWorks E-Commerce Sales Pipeline
 ### Soluzione di Business Intelligence End-to-End (Data Engineering, SQL Server & Power BI)
 
-Progetto di gruppo sviluppato per il Master / Corso di studi in Data Analytics & BI (Link Campus University - Gruppo B).
-
----
-
-## 👥 Team di Progetto
-* **Federico Antonio Pepe** – Data Engineer Specialist
-* **Fabrizio Uleri** – SQL & Data Warehouse Specialist
-* **Stefano Azza** – BI Developer & UX Specialist
-
+Progetto sviluppato per il Master in Data Analytics & BI (Link Campus University ).
 ---
 
 ## 🏗️ Panoramica dell'Architettura
