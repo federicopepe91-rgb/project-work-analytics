@@ -1,4 +1,11 @@
 # 🚀 AdventureWorks E-Commerce Sales Pipeline
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PySpark-Distributed-orange?style=for-the-badge&logo=apachespark&logoColor=white" alt="PySpark">
+  <img src="https://img.shields.io/badge/SQL%20Server-T--SQL-red?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server">
+  <img src="https://img.shields.io/badge/Power%20BI-DAX%20%26%20UX-yellow?style=for-the-badge&logo=powerbi&logoColor=white" alt="Power BI">
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Status">
+</p>
 ### Soluzione di Business Intelligence End-to-End (Data Engineering, SQL Server & Power BI)
 
 Progetto sviluppato per il Master in Data Analytics & BI (Link Campus University ).
