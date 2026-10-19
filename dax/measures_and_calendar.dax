@@ -1,0 +1,78 @@
+-- ==============================================================================
+-- 1. TABELLA CALENDARIO DINAMICA (DimDate)
+-- ==============================================================================
+DimDate = 
+VAR DataInizio = MIN ( FactInternetSales[OrderDateKey] )
+VAR DataFine = MAX ( FactInternetSales[OrderDateKey] )
+RETURN
+ADDCOLUMNS (
+    CALENDAR (
+        DATE (
+            INT ( DataInizio / 10000 ),
+            INT ( MOD ( DataInizio, 10000 ) / 100 ),
+            MOD ( DataInizio, 100 )
+        ),
+        DATE (
+            INT ( DataFine / 10000 ),
+            INT ( MOD ( DataFine, 10000 ) / 100 ),
+            MOD ( DataFine, 100 )
+        )
+    ),
+    "Anno", YEAR ( [Date] ),
+    "NumeroMese", MONTH ( [Date] ),
+    "Mese", FORMAT ( [Date], "MMMM" ),
+    "Trimestre", "Q" & FORMAT ( [Date], "Q" ),
+    "Giorno", DAY ( [Date] ),
+    "AnnoMese", FORMAT ( [Date], "YYYY-MM" ),
+    "AnnoMese_Ordine", YEAR ( [Date] ) * 100 + MONTH ( [Date] )
+)
+
+
+-- ==============================================================================
+-- 2. MISURE KPI DI BASE (Tabella: Misure)
+-- ==============================================================================
+
+Ricavi = SUM ( FactInternetSales[SalesAmount] )
+
+Costi = SUM ( FactInternetSales[TotalProductCost] )
+
+Profitto = [Ricavi] - [Costi]
+
+Margine % = DIVIDE ( [Profitto], [Ricavi], 0 )
+
+Quantita Venduta = SUM ( FactInternetSales[OrderQuantity] )
+
+Ordini = DISTINCTCOUNT ( FactInternetSales[SalesOrderNumber] )
+
+Clienti = DISTINCTCOUNT ( FactInternetSales[CustomerKey] )
+
+Prodotti = DISTINCTCOUNT ( FactInternetSales[ProductKey] )
+
+
+-- ==============================================================================
+-- 3. MISURE TIME INTELLIGENCE & YoY (Analisi Manageriale)
+-- ==============================================================================
+
+Ricavi Anno Precedente = 
+CALCULATE (
+    [Ricavi],
+    SAMEPERIODLASTYEAR ( DimDate[Date] )
+)
+
+Variazione Ricavi = [Ricavi] - [Ricavi Anno Precedente]
+
+Variazione Ricavi % = 
+DIVIDE (
+    [Variazione Ricavi],
+    [Ricavi Anno Precedente],
+    0
+)
+
+
+-- ==============================================================================
+-- 4. MISURE AGGIUNTIVE PER TOOLTIP TERRITORIALI
+-- ==============================================================================
+
+Clienti % Totale = DIVIDE ( [Clienti], CALCULATE ( [Clienti], ALL ( DimSalesTerritory ) ), 0 )
+
+Prodotti % Totale = DIVIDE ( [Prodotti], CALCULATE ( [Prodotti], ALL ( DimSalesTerritory ) ), 0 )
