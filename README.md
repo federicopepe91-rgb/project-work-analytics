@@ -47,3 +47,21 @@ Il flusso di lavoro segue una pipeline **End-to-End**:
 * **Data Engineering & ETL:** Python, PySpark, Google Colab, Azure Blob Storage
 * **Database & SQL:** Microsoft SQL Server, SSMS (SQL Server Management Studio), T-SQL
 * **Business Intelligence:** Power BI, Modellazione DAX, Star Schema Design
+
+ ## 📊 Anteprima delle Dashboard (Power BI)
+
+### 1. Overview Vendite
+Dashboard executive con i KPI principali, il trend mensile dei ricavi, la classifica dei Top 5 prodotti per ricavi e la distribuzione per linea di prodotto.
+![Overview Vendite](Overview_vendite.png)
+
+### 2. Dettaglio Temporale
+Analisi approfondita dell'andamento dei ricavi nel tempo con filtri dinamici sull'intervallo temporale.
+![Dettaglio Temporale](dettaglio_temporale.png)
+
+### 3. Comportamento Clienti e Territori
+Mappa geografica interattiva per l'analisi della distribuzione dei ricavi per continente, stato e aree commerciali globali.
+![Clienti e Territori](clienti_territori.jpg)
+
+### 4. Dettaglio Cliente
+Vista operativa di approfondimento dedicata alla profilazione e all'andamento degli acquisti del singolo cliente.
+![Dettaglio Cliente](dettaglio_cliente.png) 
